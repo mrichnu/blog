@@ -1,0 +1,4 @@
+@reboot /home/technivore/bin/dropbox.py start
+@daily	/home/technivore/bin/dropbox.py running && /home/technivore/bin/dropbox.py start
+* * * * * /home/technivore/Dropbox/textfiles/blog/etc/monitor-blog.sh /home/technivore/Dropbox/textfiles/blog
+@daily	/usr/sbin/logrotate -s /home/technivore/tmp/logrotate.status /home/technivore/Dropbox/textfiles/blog/etc/logrotate.conf
