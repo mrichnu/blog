@@ -1,7 +1,6 @@
 ---
 title: ".NET Land: Basic Authentication in IIS 7"
 categories:
-- .NET
 - Coding
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: (Don't) Do The Right Thing
 categories:
-- Python
 - Coding
 ---
 
