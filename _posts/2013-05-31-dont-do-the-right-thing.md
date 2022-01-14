@@ -3,7 +3,6 @@ title: (Don't) Do The Right Thing
 categories:
 - Python
 - Coding
-feature_image: "https://picsum.photos/2560/600?image=872"
 ---
 
 I tend to spend way too much time doing the "right" thing that I don't
