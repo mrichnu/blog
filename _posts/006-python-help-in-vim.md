@@ -1,9 +1,11 @@
+---
 Title: Python Documentation and Vim
 Date: 2014-01-08 17:24
 Tags: python, documentation, vim
 Slug: python-documentation-and-vim
 Author: Matthew Rich
 Summary: Getting Python help directly in vim.
+---
 
 Today at a [CodeMash](http://codemash.org) session I did a bit of pair
 programming, which honestly I hadn't done in over 10 years and was a great

@@ -1,9 +1,13 @@
-Status: draft
-Title: My super title
-Date: 2010-12-03 10:20
-Tags: pelican, publishing
-Slug: my-super-post
-Author: Matthew Rich
-Summary: Short version for index and feeds
+---
+title: <title>
+categories:
+- Cloud
+- AWS
+feature_image: "https://picsum.photos/2560/600?image=872"
+---
 
-This is the content of my super blog post.
+Teaser/intro text
+
+<!-- more -->
+
+Rest of post

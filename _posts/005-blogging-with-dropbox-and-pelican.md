@@ -1,9 +1,11 @@
+---
 Title: Blogging with Dropbox and Pelican
 Date: 2014-01-03
 Tags: pelican, python, linux
 Slug: blogging-with-dropbox-and-pelican
 Author: Matthew Rich
 Summary: How the iPad inspired a new blog setup.
+---
 
 I was recently given a new iPad Air at work and in order to not feel like I use
 the device only for the Kindle app and the *occasional* game, I have been
