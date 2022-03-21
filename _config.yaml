@@ -21,7 +21,6 @@ exclude:
 plugins:
 - jekyll-sitemap
 - jekyll-mentions
-# - jekyll-paginate
 - jekyll-seo-tag
 - jekyll-redirect-from
 - jekyll-feed
@@ -30,10 +29,21 @@ plugins:
 - jemoji
 
 # 3. Gem settings
-#paginate: 2 # jekyll-paginate > items per page
-#paginate_path: blog/page:num # jekyll-paginate > blog page
+gems:
+  - jekyll-paginate-v2
 
-gems: [jekyll-paginate-v2]
+permalink: /:year/:month/:title.html
+
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 5
+  offset: 2
+  permalink: '/page/:num/'
+  title: ':title - page :num of :max'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
 jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
 twitter:
@@ -107,14 +117,14 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 
 # 8. Site favicons & manifest icons
 favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
-  16: '/assets/logos/logo@16px.png'
-  32: '/assets/logos/logo@32px.png'
-  96: '/assets/logos/logo@96px.png'
-  120: '/assets/logos/logo@120px.png'
-  144: '/assets/logos/logo@144px.png'
-  180: '/assets/logos/logo@180px.png'
-  512: '/assets/logos/logo@512px.png'
-  1024: '/assets/logos/logo@1024px.png'
+#  16: '/assets/logos/logo@16px.png'
+#  32: '/assets/logos/logo@32px.png'
+#  96: '/assets/logos/logo@96px.png'
+#  120: '/assets/logos/logo@120px.png'
+#  144: '/assets/logos/logo@144px.png'
+#  180: '/assets/logos/logo@180px.png'
+#  512: '/assets/logos/logo@512px.png'
+#  1024: '/assets/logos/logo@1024px.png'
 
 # 9. Site navigation
 navigation_header:
@@ -123,9 +133,9 @@ navigation_header:
 - title: About
   url: /about/
 
-navigation_footer:
-- title: Based on Alembic Jekyll theme by David Darnes
-  url: https://darn.es
+#navigation_footer:
+#- title: Based on Alembic Jekyll theme by David Darnes
+#  url: https://darn.es
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   Twitter: https://twitter.com/technivore
@@ -136,8 +146,8 @@ social_links: # Appears in sidebar. Set the urls then uncomment and comment out 
 
 sharing_links: # Appear at the bottom of single blog posts, add as desired. The value can be 'true' or the desired button colour
   Twitter: "#0d94e7"
-  facebook: "#3B5998"
-  Email: true
+  #facebook: "#3B5998"
+  #Email: true
 
 # Load custom fonts from fonts.google.com etc
 #

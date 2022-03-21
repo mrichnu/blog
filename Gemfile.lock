@@ -113,6 +113,7 @@ PLATFORMS
 DEPENDENCIES
   alembic-jekyll-theme
   jekyll (~> 4.2)
+  jekyll-feed
   jekyll-paginate-v2
 
 BUNDLED WITH
