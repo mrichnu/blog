@@ -1,9 +1,10 @@
-Title: Pandas Indexing Basics 
-Date: 2016-04-22 15:05
-Tags: pandas, data, python
-Slug: pandas-indexing-basics
-Author: Matthew Rich
-Summary: What's the difference between .loc, .iloc, and .ix?
+---
+title: Pandas Indexing Basics 
+tags: data pandas python
+---
+What's the difference between .loc, .iloc, and .ix?
+
+<!-- more -->
 
 ## Data access attributes
 The primary means of doing Series/DataFrame selection (read: data access) are

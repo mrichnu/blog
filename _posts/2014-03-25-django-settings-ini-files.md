@@ -1,6 +1,6 @@
 ---
 title: Factor Your Django Settings Into uwsgi Ini Files
-tags: coding
+tags: coding django
 ---
 
 If you have one codebase and multiple sites, keep your settings in ini files.

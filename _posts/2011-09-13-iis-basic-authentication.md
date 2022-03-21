@@ -1,6 +1,6 @@
 ---
 title: ".NET Land: Basic Authentication in IIS 7"
-tags: coding
+tags: coding dotnet
 ---
 
 A Python guy learns to swim in the waters of ASP.NET. In this update:

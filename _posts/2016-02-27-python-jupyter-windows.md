@@ -1,12 +1,10 @@
-Title: Three Ways To Run Jupyter In Windows
-Date: 2016-02-27 18:20
-Tags: python, jupyter, windows
-Slug: windows-jupyter-three-ways
-Author: Matthew Rich
-Summary: Let's look at a few different ways to run jupyter notebooks in Windows.
+---
+title: Three Ways To Run Jupyter In Windows
+tags: python jupyter windows
+---
+Let's look at a few different ways to run jupyter notebooks in Windows.
 
-# Three Ways to Run Jupyter In Windows
-
+<!-- more -->
 
 ## The "Pure Python" Way
 Make your way over to [python.org](https://www.python.org/), download and install

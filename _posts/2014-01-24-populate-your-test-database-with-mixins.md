@@ -1,6 +1,6 @@
 ---
 title: Populate Your Test Database With Mixins
-tags: coding
+tags: coding django
 ---
 
 Maintaining fixtures got you down? Use a mixin!

@@ -1,6 +1,6 @@
 ---
 title: Persistent Search Filtering with ASP.NET MVC Value Providers
-tags: coding
+tags: coding dotnet
 ---
 Want your MVC web app to remember your users' search parameters?  There's a feature for that.
 

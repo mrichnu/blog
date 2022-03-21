@@ -1,9 +1,10 @@
-Title: Query your S3-hosted CSV data like a SQL database with Drill!
-Date: 2016-04-12 16:55
-Tags: data, sql, drill, apache, s3
-Slug: querying-s3-data-with-drill
-Author: Matthew Rich
-Summary: Apache Drill can turn CSVs into a cloud-hosted database.
+---
+title: Query your S3-hosted CSV data like a SQL database with Drill!
+tags: data sql s3
+---
+Apache Drill can turn CSVs into a cloud-hosted database.
+
+<!-- more -->
 
 There is a large and growing [ecosystem](https://hadoopecosystemtable.github.io/)
 of tools around the Hadoop project, tackling various parts of the problem of
@@ -49,7 +50,7 @@ your IP address.  Drill's web console listens on port 8047. I used a t2.large
 instance so Drill would have the 8GB of RAM that it wants. Once it is up and
 running, SSH into it to run the following commands:
 
-```
+```sh
 ubuntu@<hostname>:~$ sudo apt-get install default-jdk
 ubuntu@<hostname>:~$ curl -o apache-drill-1.6.0.tar.gz http://apache.mesi.com.ar/drill/drill-1.6.0/apache-drill-1.6.0.tar.gz
 ubuntu@<hostname>:~$ tar xvfz apache-drill-1.6.0.tar.gz
@@ -64,20 +65,20 @@ You need to tell Drill which credentials to use to access S3, so edit
 <configuration>
 
   <property>
-	  <name>fs.s3a.access.key</name>
-	  <value>YOUR_ACCESS_KEY</value>
+    <name>fs.s3a.access.key</name>
+    <value>YOUR_ACCESS_KEY</value>
   </property>
 
   <property>
-	  <name>fs.s3a.secret.key</name>
-	  <value>YOUR_SECRET_KEY</value>
+    <name>fs.s3a.secret.key</name>
+    <value>YOUR_SECRET_KEY</value>
   </property>
 
 </configuration>
 ```
 
 ### Start Drill.
-```
+```sh
 ubuntu@<hostname>:~$ ./bin/drill-embedded
 ```
 
@@ -85,13 +86,13 @@ If you get an unknown host error, you may need to edit the `/etc/hosts` file
 and add an entry for your hostname and IP address. You can view your IP
 address with this command:
 
-```
+```sh
 ubuntu@<hostname>:~$ /sbin/ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}'
 ```
 
 and then add it to your `/etc/hosts` file with this command:
 
-```
+```sh
 ubuntu@<hostname>:~$ sudo sh -c 'echo "<YOUR IP ADDRESS> `hostname`" >>/etc/hosts'
 ```
 Then re-run the `./bin/drill-embedded` command.
@@ -104,7 +105,7 @@ and copy the JSON document there to your clipboard. Then click "Back", and if
 there is already a plugin named "s3" click its "Update" button, otherwise
 create a new storage plugin named "s3". Paste in the JSON from your clipboard,
 and edit the `connection` field to look like the following:
-```
+```sh
 "connection": "s3a://<s3-bucket-name>/",
 ```
 replacing `<s3-bucket-name>` with the name of your bucket. Note that the
@@ -126,7 +127,7 @@ At this point you can go back to your SSH session where the Drill prompt is
 waiting for you to query the data. Assuming that your storage plugin is named
 `s3`and the `root` workspace contains your CSV files, you can use the `USE`
 command in Drill to set that as your default workspace:
-```
+```sql
 0: jdbc:drill:zk=local> USE `s3`.`root`;
 +-------+-----------------------------------------+
 |  ok   |                 summary                 |
@@ -136,7 +137,7 @@ command in Drill to set that as your default workspace:
 1 row selected (1.448 seconds)
 ```
 Cool! Now we can just access our CSVs like they were SQL tables!
-```
+```sql
 0: jdbc:drill:zk=local> SELECT * FROM `LAKE.csv`;
 +-----------------------+
 |        columns        |
@@ -156,7 +157,7 @@ Huh, that's weird. These CSV files all have a header row but Drill doesn't
 know to use it. To fix that, we can edit our `s3` storage plugin again, adding
 `"extractHeader": true,` to the options for the `csv` format. Save the change
 and Drill immediately picks it up, no need to restart:
-```
+```sql
 0: jdbc:drill:zk=local> SELECT * FROM `LAKE.csv`;
 +-------+------------+
 | LAKE  | LAKE_NAME  |
@@ -174,7 +175,7 @@ Much better! `CATCH.csv` is the biggest file, containing each individual catch
 recorded by the study. Let's see how many records there are. We can't do a 
 `SELECT COUNT(*)` because we have `extractHeader` turned on, so we need to
 pick an actual column to count:
-```
+```sql
 0: jdbc:drill:zk=local> SELECT COUNT(CATCH_ID) FROM `CATCH.csv`;
 +----------+
 |  EXPR$0  |
@@ -191,7 +192,7 @@ speed things up by using a cluster of Drill nodes rather than just the single,
 Let's try a join and an aggregation. The `DEPTH1` field contains the beginning
 depth of the catch, in fathoms, so let's take a look at that, converting it to
 feet:
-```
+```sql
 0: jdbc:drill:zk=local> SELECT `LAKE.csv`.LAKE_NAME, AVG(CAST(`EFFORT.csv`.DEPTH1 AS INT))*6
 . . . . . . . . . . . > FROM `CATCH.csv`
 . . . . . . . . . . . > JOIN `EFFORT.csv` ON `CATCH.csv`.EFFRT_ID = `EFFORT.csv`.EFFRT_ID

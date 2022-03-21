@@ -1,6 +1,6 @@
 ---
 title: ".NET Land: The Trouble With ASP.NET Default Authentication Providers"
-tags: coding
+tags: coding dotnet
 ---
 
 A Python guy learns to swim in the waters of ASP.NET. In this update:

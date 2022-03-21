@@ -1,9 +1,10 @@
-Title: A Middle Ground with Docker
-Date: 2015-10-13 12:20
-Tags: docker, devops
-Slug: docker-middle-ground
-Author: Matthew Rich
-Summary: Get the benefits of Docker without upending your existing development workflow.
+---
+title: A Middle Ground with Docker
+tags: docker
+---
+Get the benefits of Docker without upending your existing development workflow.
+
+<!-- more -->
 
 ## My Moment Of Docker Clarity
 I was, for a long time, a [Docker](http://docs.docker.com/) skeptic. I was in
@@ -65,18 +66,15 @@ Ansible.
 
 This approach gives me 
 
-- the benefits of being able to redeploy my app anywhere, insulating me from
-	the shifting infrastructure landscape
+- the benefits of being able to redeploy my app anywhere, insulating me from the shifting infrastructure landscape
 - an easy way to distribute my application
 - the benefits of packaging my dependencies with my code.
 
 While allowing me to avoid
 
 - having to fight Docker to containerize an inherently stateful service
-- disrupting my preferred local development workflow, using `virtualenv`,
-	`pip`, and Django's `runserver` command.
-- having Docker infect my repository layout by forcing all app code to live
-	in the context of a Dockerfile.
+- disrupting my preferred local development workflow, using `virtualenv`, `pip`, and Django's `runserver` command.
+- having Docker infect my repository layout by forcing all app code to live in the context of a Dockerfile.
 
 No doubt my approach will continue to evolve and my build scripts can be
 refined, but this method is a useful and effective middle ground.

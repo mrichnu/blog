@@ -1,6 +1,6 @@
 ---
 title: A Pattern for Handling Multiple HTTP Verbs in Django
-tags: coding
+tags: coding django
 ---
 
 An explicit, pythonic, easy-to-read way to handle multiple HTTP verbs in a single Django function-based view. No more ugly if/else blocks!

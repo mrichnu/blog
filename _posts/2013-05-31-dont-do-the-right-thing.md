@@ -1,6 +1,6 @@
 ---
 title: (Don't) Do The Right Thing
-tags: coding
+tags: coding meta
 ---
 
 I tend to spend way too much time doing the "right" thing that I don't

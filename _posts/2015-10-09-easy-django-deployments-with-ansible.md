@@ -1,9 +1,10 @@
-Title: Easy Django Deployments with Ansible
-Date: 2015-10-09 14:15
-Tags: django, ansible, devops
-Slug: easy-django-deployments-with-ansible
-Author: Matthew Rich
-Summary: Get your Django project up and running in production in seconds.
+---
+title: Easy Django Deployments with Ansible
+tags: coding django ansible
+---
+Get your Django project up and running in production in seconds.
+
+<!-- more -->
 
 There are multiple ways to get a python web application running in production,
 including [Docker](https://www.docker.com), push-to-deploy PaaS services like
