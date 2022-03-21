@@ -1,7 +1,6 @@
 ---
 title: (Don't) Do The Right Thing
-categories:
-- Coding
+tags: coding
 ---
 
 I tend to spend way too much time doing the "right" thing that I don't
@@ -19,7 +18,7 @@ project: Spending far too long just thinking about the *project layout*
 before I even create a single file. Doing "documentation driven
 development" to a fault (which means when combined with problem #1, I've
 just spent an hour fiddling with the layout of my documentation
-files)[1]. Worrying about what CSS framework to use.
+files)[^1]. Worrying about what CSS framework to use.
 
 I really admire developers who can simply dive in and start writing code
 (test first of course!) without worrying about this stuff, whether
@@ -38,6 +37,6 @@ So that is the inaugural theme of this blog: embrace `import this` but
 don't worry about always doing the right thing. Break stuff! Be messy!
 Just don't stop building things!
 
-[1] Note I'm *definitely* not saying DDD is bad. Just that I can
+[^1] Note I'm *definitely* not saying DDD is bad. Just that I can
 occasionally go a little overboard with trying to foresee and document
 every detail before even begin designing the end product.

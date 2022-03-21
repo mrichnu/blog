@@ -1,10 +1,6 @@
 ---
-Title: Blogging with Dropbox and Pelican
-Date: 2014-01-03
-Tags: pelican, python, linux
-Slug: blogging-with-dropbox-and-pelican
-Author: Matthew Rich
-Summary: How the iPad inspired a new blog setup.
+title: Blogging with Dropbox and Pelican
+tags: meta
 ---
 
 I was recently given a new iPad Air at work and in order to not feel like I use
@@ -16,6 +12,8 @@ was a great idea. I found a brilliant and beautiful app called
 [Editorial](http://omz-software.com/editorial) that handles text and Markdown
 documents and syncs with Dropbox, and since I had resurrected my blog last week
 I immediately began to think of a way to use it for blogging.
+
+<!-- more -->
 
 My blog had been in [Pelican](http://blog.getpelican.com/) already, after
 having migrated from blogofile when I originally began it, and I was using S3
@@ -53,7 +51,7 @@ which was that I did it the very day that pip 1.5 was released and pip now
 prefers wheels where possible, but the required version of setuptools(>= 0.8)
 for wheel support is not present (yet) on Webfaction machines. 
 
-```
+```sh
 easy_install-2.7 pip
 pip install --upgrade distribute
 ```
@@ -67,7 +65,7 @@ Anyway, `pip install pelican markdown` is all you need here.
 ## inotify-tools
 Now at this point you are basically done: you can write a shell script to run via cron and rebuild your site periodically with the latest set of posts in your Dropbox folder. But where is the fun in that? We want to rebuild the site *immediately* whenever a post changes, and for that, on Linux anyway, we can use [inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki).
 
-```
+```sh
 wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz
 tar xvfz inotify-tools-3.14.tar.gz
 cd inotify-tools-3.14
@@ -83,24 +81,24 @@ And here is where I put my twist on the standard Dropbox/Pelican formula. I want
 
 update-blog.sh (rebuilds the blog)
 
-```
+```sh
 #!/bin/bash
 source $HOME/.virtualenvs/technivore-blog/bin/activate && $HOME/bin/pelican -q -s $HOME/Dropbox/textfiles/blog/pelicanconf.py
 ```
 
 monitor-blog.sh
 
-```
+```sh
 #!/bin/bash
 # Shamelessly stolen from Marco Arment's Second Crack project:
 # https://github.com/marcoarment/secondcrack
 
 if [ "$1" == "" ] ; then
-	echo ""
-	echo "Usage: monitor-blog.sh SOURCE_PATH"
-	echo "  where SOURCE_PATH contains your blog posts."
-	echo ""
-	exit 1
+    echo ""
+    echo "Usage: monitor-blog.sh SOURCE_PATH"
+    echo "  where SOURCE_PATH contains your blog posts."
+    echo ""
+    exit 1
 fi
 
 SOURCE_PATH="$1"
@@ -110,26 +108,26 @@ UPDATE_LOG="${HOME}/tmp/blog-update.log"
 BASH_LOCK_DIR="${HOME}/tmp/update.sh.lock"
 
 if mkdir "$BASH_LOCK_DIR" ; then
-	trap "rmdir '$BASH_LOCK_DIR' 2>/dev/null ; exit" INT TERM EXIT
+    trap "rmdir '$BASH_LOCK_DIR' 2>/dev/null ; exit" INT TERM EXIT
 
-	echo "`date` -- updating blog" >> $UPDATE_LOG
-	$SOURCE_PATH/etc/update-blog.sh
+    echo "`date` -- updating blog" >> $UPDATE_LOG
+    $SOURCE_PATH/etc/update-blog.sh
 
-	while true ; do
-		$HOME/bin/inotifywait -q -q -r -t $FORCE_CHECK_EVERY_SECONDS -e close_write -e create -e delete -e moved_from "$SOURCE_PATH"
-		if [ $? -eq 0 ] ; then
-			echo "`date` -- updating blog, a source file changed" >> $UPDATE_LOG
-		else
-			echo "`date` -- updating blog, $FORCE_CHECK_EVERY_SECONDS seconds elapsed" >> $UPDATE_LOG
-		fi
-		
-		$SOURCE_PATH/etc/update-blog.sh
-	done
+    while true ; do
+        $HOME/bin/inotifywait -q -q -r -t $FORCE_CHECK_EVERY_SECONDS -e close_write -e create -e delete -e moved_from "$SOURCE_PATH"
+        if [ $? -eq 0 ] ; then
+            echo "`date` -- updating blog, a source file changed" >> $UPDATE_LOG
+        else
+            echo "`date` -- updating blog, $FORCE_CHECK_EVERY_SECONDS seconds elapsed" >> $UPDATE_LOG
+        fi
+        
+        $SOURCE_PATH/etc/update-blog.sh
+    done
 
-	rmdir "$BASH_LOCK_DIR" 2>/dev/null
-	trap - INT TERM EXIT
+    rmdir "$BASH_LOCK_DIR" 2>/dev/null
+    trap - INT TERM EXIT
 else
-	 echo "Already running!"
+     echo "Already running!"
 fi
 ```
 
@@ -144,20 +142,20 @@ project I think it's ok.
 
 ```
 @reboot /home/technivore/bin/dropbox.py start
-@daily	/home/technivore/bin/dropbox.py running && /home/technivore/bin/dropbox.py start
+@daily    /home/technivore/bin/dropbox.py running && /home/technivore/bin/dropbox.py start
 * * * * * /home/technivore/Dropbox/textfiles/blog/etc/monitor-blog.sh /home/technivore/Dropbox/textfiles/blog
-@daily	/usr/sbin/logrotate -s /home/technivore/tmp/logrotate.status /home/technivore/Dropbox/textfiles/blog/etc/logrotate.conf
+@daily    /usr/sbin/logrotate -s /home/technivore/tmp/logrotate.status /home/technivore/Dropbox/textfiles/blog/etc/logrotate.conf
 ```
 
 logrotate.conf
 
 ```
 /home/technivore/tmp/blog-update.log {
-	rotate 5
-	copytruncate
-	compress
-	daily
-	mail blog@technivore.org
+    rotate 5
+    copytruncate
+    compress
+    daily
+    mail blog@technivore.org
 }
 ```
 

@@ -1,10 +1,6 @@
 ---
-Title: Python Documentation and Vim
-Date: 2014-01-08 17:24
-Tags: python, documentation, vim
-Slug: python-documentation-and-vim
-Author: Matthew Rich
-Summary: Getting Python help directly in vim.
+title: Python Documentation and Vim
+tags: coding
 ---
 
 Today at a [CodeMash](http://codemash.org) session I did a bit of pair
@@ -15,9 +11,9 @@ Kata](http://osherove.com/tdd-kata-1/). Because my partner did not have a
 language environment he felt comfortable taking the lead with -- his primary
 languages, oddly enough, were Bash, PowerShell, and a proprietary ERP language
 -- I ended up controlling the keyboard and we finished the exercise using
-Python. You can read our
-[implementation](http://technivore.org/extra/string-calculator/StringCalculatorKata.py)
-and [tests](http://technivore.org/extra/string-calculator/string_calculator_tests.py).
+Python.
+
+<!-- more -->
 
 The String Calculator exercise is very straightforward until you get to the 7th
 step and beyond, which involve handling a variable number of variable length

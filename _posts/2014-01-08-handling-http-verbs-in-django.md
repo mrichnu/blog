@@ -1,9 +1,11 @@
-Title: A Pattern for Handling Multiple HTTP Verbs in Django
-Date: 2014-01-08 21:48
-Tags: python, django
-Slug: handling-http-verbs-in-django
-Author: Matthew Rich
-Summary: An explicit, pythonic, easy-to-read way to handle multiple HTTP verbs in a single Django function-based view. No more ugly if/else blocks!
+---
+title: A Pattern for Handling Multiple HTTP Verbs in Django
+tags: coding
+---
+
+An explicit, pythonic, easy-to-read way to handle multiple HTTP verbs in a single Django function-based view. No more ugly if/else blocks!
+
+<!-- more -->
 
 Recently I met [@odonnell004](https://twitter.com/odonnell004), a very
 knowledgeable [Django developer](http://www.mavenrd.com) at the CodeMash
@@ -16,19 +18,21 @@ request is to test the value of `request.method` in an if/else block, with the
 logic for what to do for each case contained in the block itself. Forms are the
 classic example (code below taken directly from the Django docs):
 
-	def contact(request):
-			if request.method == 'POST': # If the form has been submitted...
-					form = ContactForm(request.POST) # A form bound to the POST data
-					if form.is_valid(): # All validation rules pass
-							# Process the data in form.cleaned_data
-							# ...
-							return HttpResponseRedirect('/thanks/') # Redirect after POST
-			else:
-					form = ContactForm() # An unbound form
+```python
+def contact(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = ContactForm(request.POST) # A form bound to the POST data
+            if form.is_valid(): # All validation rules pass
+                # Process the data in form.cleaned_data
+                # ...
+                return HttpResponseRedirect('/thanks/') # Redirect after POST
+    else:
+        form = ContactForm() # An unbound form
 
-			return render(request, 'contact.html', {
-					'form': form,
-			})
+    return render(request, 'contact.html', {
+        'form': form,
+    })
+```
 
 I have been doing it this way pretty much since I started with Django three
 years or so ago, and while it probably bothered me a bit at first I've long
@@ -42,33 +46,35 @@ What if, however, we wrote a function to handle each particular verb we want to
 accept within a function-based view, and relied on a bit of clever
 introspection to decide exactly which function to call?
 
-		from django.http import HttpResponse
+```python        
+from django.http import HttpResponse
 
-		def my_view(request):
-				foo = do_something()
+def my_view(request):
+    foo = do_something()
 
-				def get():
-						pass
+    def get():
+        pass
 
-				def post():
-						pass
+    def post():
+        pass
 
-				def put():
-						pass
+    def put():
+        pass
 
-				def delete():
-						pass
+    def delete():
+        pass
 
-				return resolve_http_method(request, [get, post, put, delete])
+    return resolve_http_method(request, [get, post, put, delete])
 
-		def resolve_http_method(request, methods):
-				if isinstance(methods, types.ListType):
-						methods = { func.__name__.lower() : func for func in methods }
-				if request.method.lower() not in methods.keys():
-						return HttpResponse(status=501)
+def resolve_http_method(request, methods):
+    if isinstance(methods, types.ListType):
+        methods = { func.__name__.lower() : func for func in methods }
+    if request.method.lower() not in methods.keys():
+        return HttpResponse(status=501)
 
-				return methods[request.method.lower()]()
-		
+    return methods[request.method.lower()]()
+```
+        
 I love this. `resolve_http_method` simply gets passed the Django `HttpRequest`
 instance and a list of functions whose names must be HTTP verbs. It then builds
 a dict whose keys are the names of the functions and the values the functions
