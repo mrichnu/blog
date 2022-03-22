@@ -2,6 +2,7 @@
 title: Pandas Indexing Basics 
 tags: data pandas python
 ---
+
 What's the difference between .loc, .iloc, and .ix?
 
 <!-- more -->

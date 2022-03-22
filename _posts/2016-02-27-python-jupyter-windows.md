@@ -2,6 +2,7 @@
 title: Three Ways To Run Jupyter In Windows
 tags: python jupyter windows
 ---
+
 Let's look at a few different ways to run jupyter notebooks in Windows.
 
 <!-- more -->

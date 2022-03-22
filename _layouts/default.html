@@ -38,7 +38,7 @@
 
     {% if site.favicons or site.avatarurl %}{% include site-favicons.html %}{% endif %}
 
-    {% if site.google_analytics %}{% include site-analytics.html %}{% endif %}
+    {% if site.google_analytics and jekyll.environment == 'production' %}{% include site-analytics.html %}{% endif %}
 
     {% include site-fonts.html %}
 
