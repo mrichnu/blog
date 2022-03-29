@@ -3,18 +3,14 @@ title: AWS Billing Conductor First Impressions
 tags: weeknotes
 ---
 
-AWS gives us a first-class tool to modify CURs. 
-
-<!-- more -->
-
-## AWS Billing Conductor
-
 [AWS Billing
 Conductor](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html)
 (ABC) is a new service that I believe is primarily intended as a way for
 resellers to create "Pro-forma" CURs (Cost and Usage Reports) for their
 customers that include custom AWS pricing (both markups and discounts) along
-with custom line items. 
+with custom line items. I took it for a brief spin today.
+
+<!-- more -->
 
 My organization is looking at it to bring (more) accurate pricing into a cost
 reporting tool we're evaluating, especially for AWS accounts under the [NIH
