@@ -61,4 +61,4 @@ before.
 
 I just deleted the billing group and its associated pro-forma CUR this morning
 (April 1st), but I fear that since we crossed into a new month we may be charged
-the full amount again for April
+the full amount again for April.
