@@ -1,6 +1,6 @@
 ---
 title: AWS Billing Conductor First Impressions
-tags: weeknotes
+tags: aws cloud
 ---
 
 [AWS Billing
@@ -47,4 +47,18 @@ I had high hopes for this service but it feels half-baked at the moment. Namely:
   that was set up for your billing group.
 
 Like many AWS service launches, there's the beginnings of a really useful
-service here but it will take a few release cycles to sand down the rough edges. 
+service here but it will take a few release cycles to sand down the rough edges.
+
+***Update 4/1/2022:***
+
+This turned out to be shockingly expensive. A billing group containing all
+accounts in our moderately sized AWS organization (~100 accounts) cost $1645 the
+day after I enabled it. Interestingly the billing group only cost $61 the next
+day. I'm guessing this is because each resource generates a single "billing
+record" per month which is simply updated as the month goes along, and so the
+second day's $61 must represent resources that were created that day or the day
+before.
+
+I just deleted the billing group and its associated pro-forma CUR this morning
+(April 1st), but I fear that since we crossed into a new month we may be charged
+the full amount again for April
