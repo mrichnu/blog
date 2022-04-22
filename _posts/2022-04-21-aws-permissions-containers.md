@@ -14,7 +14,7 @@ Azure's resource groups are logical containers where you can deploy and manage
 Azure resources. Resource groups live within a subscription in the [Azure
 resource
 hierarchy](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)
-and offer an extra layer to apply permissions boundaries. Each Azure resource
+and offer an extra layer to apply permissions. Each Azure resource
 (e.g. a VM or storage account) must be deployed to a single resource group, and
 each each resource group exists in a subscription (the cost/financial boundary).
 Permissions are generally assigned in Azure at the resource group level.
@@ -23,7 +23,7 @@ TL;DR: In Azure, multiple teams can share a single subscription (IE, share a
 single monthly bill) *and* have hard permissions boundaries between their
 resources that are easily managed via resource groups.
 
-AWS on the other hand also has [resource
+AWS also has [resource
 groups](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html)!
 AWS calls their resource groups "the service that lets you manage and automate
 tasks on large numbers of resources at one time". Charitably, that statement is
