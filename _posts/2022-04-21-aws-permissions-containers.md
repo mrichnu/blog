@@ -16,7 +16,7 @@ resource
 hierarchy](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)
 and offer an extra layer to apply permissions. Each Azure resource
 (e.g. a VM or storage account) must be deployed to a single resource group, and
-each each resource group exists in a subscription (the cost/financial boundary).
+each resource group exists in a subscription (the cost/financial boundary).
 Permissions are generally assigned in Azure at the resource group level.
 
 TL;DR: In Azure, multiple teams can share a single subscription (IE, share a
