@@ -33,6 +33,7 @@ then adding it to your home screen.
 ## Tips
 
 - To get [nginx to work with my Let's Encrypt SSL certificate](https://coder.com/docs/code-server/latest/guide#using-lets-encrypt-with-nginx), I had to manually set the path to the cert and key in my nginx config. E.g. add the below to your `/etc/nginx/sites-available/code-server`:
+
 ```
 server {
   listen 443 ssl;
@@ -53,4 +54,4 @@ server {
 
 - The software keyboard shortcut kept appearing at the bottom of the screen,
   even though I'm using a smart keyboard folio, until I turned off "Shortcuts"
-  and "Predictive" in the Settings -> General -> Keyboards.
+  and "Predictive" in Settings -> General -> Keyboards.
