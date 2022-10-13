@@ -23,7 +23,7 @@ which allows *Steps* within a single *Job* to share variables.
 
 ## Using environment files
 
-The GitHub documenation's example here is straightforward and should work for
+The GitHub documentation's example here is straightforward and should work for
 most use cases:
 
 ```yaml
