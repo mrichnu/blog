@@ -27,6 +27,7 @@ The GitHub documenation's example here is straightforward and should work for
 most use cases:
 
 ```yaml
+{% raw %}
 steps:
   - name: Set the value
     id: step_one
@@ -36,6 +37,7 @@ steps:
     id: step_two
     run: |
       echo "${{ env.action_state }}" # This will output 'yellow'
+{% endraw %}
 ```
 
 Essentially, you append a key=value pair to the special `$GITHUB_ENV` file, and
@@ -49,6 +51,7 @@ command so the docs haven't caught up yet, the documentation leaves some very
 important steps out. Below is a simple template you can use:
 
 ```yaml
+{% raw %}
 jobs:
   job1:
     outputs:
@@ -67,6 +70,7 @@ jobs:
     - name: retrieve output
       run: |
         echo ${{ needs.job1.outputs.myoutput }}
+{% endraw %}
 ```
 
 Job 2 here will print "hello world". The important things to note are:
