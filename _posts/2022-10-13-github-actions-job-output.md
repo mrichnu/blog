@@ -82,8 +82,8 @@ Job 2 here will print "hello world". The important things to note are:
   although I don't know why you'd want them to be different.
 - The Job that wants to consume the output (here, `job2`) must have a `needs:`
   block where it declares which job's output it will need.
-- The Step that wants to use the output can access it via the `${{ needs.<job
-  id>.outputs.<output name> }}` variable.
+- The Step that wants to use the output can access it via the `{% raw %}${{ needs.<job
+  id>.outputs.<output name> }}{% endraw %}` variable.
 
 ## Tips
 
