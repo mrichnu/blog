@@ -1,6 +1,6 @@
 ---
 title: "Let a Thousand PaaSes Bloom"
-tags: coding, architecture
+tags: architecture
 ---
 
 A brief but unassailably accurate history of deploying web apps:
