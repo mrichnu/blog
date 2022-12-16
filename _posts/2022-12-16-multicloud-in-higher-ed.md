@@ -34,7 +34,7 @@ A non-exhaustive list of the ways higher ed differs from the corporate (and even
 other non-profit)worlds:
 
 - **Primacy of consensus:** It's said of faculty that a vote of 99-1 is
-  considered a tie. The committee-led decision-making process extends beyond the
+  considered a tie. The committee-led decisionmaking process extends beyond the
   faculty senate and into the IT organization.
 - **Diffuse decisionmaking responsibility:** In theory the division of
   responsibility between the board of trustees, the president, the provost, the
@@ -49,11 +49,11 @@ other non-profit)worlds:
   personally when I started here. Individual researchers operate more like small
   businesses, bringing in grant money to support their own work. They have
   mostly free rein to staff their labs and research teams as they see fit, and
-  pay rent to the university for the use of its facilities in the form of
-  "indirect costs" (a portion of the grant award money which the university
-  keeps, the percentage varies by school). The researchers are incentivized to
-  bring in as much grant money as possible, and the requirements of different
-  grants and research projects may push them towards multiple IT solutions.
+  pay rent to the university in the form of "indirect costs" (a portion of the
+  grant award money which the university keeps, the percentage varies by school)
+  for the use of its facilities. The researchers are incentivized to bring in as
+  much grant money as possible, and the requirements of different grants and
+  research projects may push them towards multiple IT solutions.
 - **Cross-institutional collaboration:** Not only will faculty members
   collaborate closely with their peers at other institutions, but staff will as
   well. I spend far more time directly sharing knowledge and collaborating with
@@ -95,10 +95,18 @@ the data portal must be kept running to support the ongoing work in the field.
 Congratulations, the IT department now owns a fungal genomics data portal.
 
 These are only slightly altered scenarios from my real experience and the same
-happens at research institutions across the country. Multi-cloud is simply a
-fact of life at institutions like this, and those of us in cloud governance must
-put in the work to make the workloads in each cloud environment as safe, secure,
-and cost-effective as possible.
+happens at research institutions across the country. 
+
+A valid criticism of the above scenarios is: why wasn't the central IT cloud
+team in the loop to guide these decisions? And absolutely they should be, but it
+does require enormous time and effort to build the relationships and trust that
+would get the decisionmakers to include the cloud team. Because for the reasons
+stated above, and because of the self-service nature of cloud services in
+general, *they are fully empowered to do it themselves*.
+
+Multi-cloud is simply a fact of life at institutions like this, and those of us
+in cloud governance must put in the work to make the workloads in each cloud
+environment as safe, secure, and cost-effective as possible.
 
 ## Single cloud can happen
 
@@ -114,9 +122,9 @@ anyone who was thinking of attempting this.
 
 I would also argue that schools without a large research presence, meaning small
 liberal arts colleges, teaching and learning-focused public universities, etc.
-should, if they are thinking of using public cloud services at all, would be
-well served to focus on a single provider for all of the reasons laid out by
-[Corey Quinn](https://www.lastweekinaws.com/blog/A_MultiCloud_Rant/), [Lydia
+should, if they are thinking of using public cloud services at all, focus on a
+single provider for all of the reasons laid out by [Corey
+Quinn](https://www.lastweekinaws.com/blog/A_MultiCloud_Rant/), [Lydia
 Leong](https://cloudpundit.com/2021/10/14/multicloud-failover-is-almost-always-a-terrible-idea/)
 etc.
 
