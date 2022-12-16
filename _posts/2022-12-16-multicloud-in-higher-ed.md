@@ -144,7 +144,8 @@ have no choice but to make the best of multicloud.
 
 That means, at a minimum:
 
-- Simple, clearly-defined standards that you communicate *constantly*
+- Simple, clearly-defined standards that you communicate *constantly* and make
+  exceptions immediately visible
 - Hard preventive guardrails to prevent dangerous (and/or expensive) operations
 - Regular checkins with cloud account owners
 - Wear sunscreen and get plenty of rest!
