@@ -148,4 +148,4 @@ That means, at a minimum:
   exceptions immediately visible
 - Hard preventive guardrails to prevent dangerous (and/or expensive) operations
 - Regular checkins with cloud account owners
-- Wear sunscreen and get plenty of rest!
+- Wearing sunscreen and getting plenty of rest
