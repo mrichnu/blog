@@ -4,8 +4,8 @@ title: About Me
 permalink: /about/
 ---
 
-I am a cloud architect at Northwestern University, where I have also worked as a Python developer and research computing facilitator. I love automating things, teaching computational skills, and connecting people through technology.
+I am an IT manager and cloud architect at Northwestern University. I love connecting and empowering people through technology.
 
-When I'm not working I'm probably playing soccer, at a show, or reading the biggest, gnarliest book I can get my hands on.
+I am active in the Evanston, Illinois community and enjoy playing soccer and reading the biggest, gnarliest books I can get my hands on.
 
-Come say hi on [GitHub](https://github.com/mrichnu/), [Twitter](https://twitter.com/technivore) or [LinkedIn](https://www.linkedin.com/in/matthew-rich/)!
+Come say hi on [GitHub](https://github.com/mrichnu/) or [LinkedIn](https://www.linkedin.com/in/matthew-rich/)!
